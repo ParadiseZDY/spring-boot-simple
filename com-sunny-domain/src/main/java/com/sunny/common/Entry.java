@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * 公共类 6个基本属性
- * @author zhao.dy
+ * @author Mr Zhao
  * @date 12:21 2018/4/16
  */
 public class Entry extends Page {

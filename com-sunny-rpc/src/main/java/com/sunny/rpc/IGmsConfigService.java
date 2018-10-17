@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 
  * 
- * @author zhao.dy
+ * @author Mr Zhao
  * @date 2018-04-16 12:20
  **/
 public interface IGmsConfigService {

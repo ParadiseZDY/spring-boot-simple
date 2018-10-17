@@ -5,7 +5,7 @@ import com.sunny.common.Entry;
 /**
  * 
  * 
- * @author zhao.dy
+ * @author Mr Zhao
  * @date 2018-04-16 12:20
  **/
 public class GmsConfig extends Entry {

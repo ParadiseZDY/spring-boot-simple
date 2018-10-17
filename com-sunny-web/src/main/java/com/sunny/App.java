@@ -25,7 +25,7 @@ import javax.sql.DataSource;
 
 /**
  * springboot 项目启动类
- * @author zhao.dy
+ * @author Mr Zhao
  * @date 2018/4/16
  */
 @SpringBootApplication
@@ -34,36 +34,12 @@ import javax.sql.DataSource;
 @EnableScheduling
 @ImportResource({"classpath:spring-dubbo-*.xml"})
 @ComponentScan("com.sunny")
-@MapperScan("com.sunny.dao")
 public class App {
 
     private static Logger logger = LoggerFactory.getLogger(App.class);
 
     @Value("${zookeeper.address}")
     private String zkConnectString;
-
-    @Bean
-    @ConfigurationProperties(prefix="spring.datasource")
-    public DataSource dataSource() {
-        return new com.alibaba.druid.pool.DruidDataSource();
-    }
-
-    @Bean
-    public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource());
-        sqlSessionFactoryBean.setTypeAliasesPackage("com.sunny.domain");
-
-        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-
-        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mybatis/*.xml"));
-        return sqlSessionFactoryBean.getObject();
-    }
-
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-        return new DataSourceTransactionManager(dataSource());
-    }
 
     public static void main(String[] args){
         SpringApplication.run(App.class,args);
